@@ -1,0 +1,79 @@
+#page-container {
+  //   position: absolute;
+  //   background: url(https://source.unsplash.com/CtqY0-G72qg/1080x720); //2400x1600
+  background: center / contain no-repeat url(../../../assets/images/harare.jpg);
+  background-size: cover;
+  height: 100vh;
+  display: grid;
+  //   box-sizing: border-box;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  //   font-size: large;
+}
+
+.cover-container {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.orange-button {
+  background-color: var(--orange);
+  border: none;
+  border-radius: 50px;
+  color: white;
+}
+
+.jumbotron {
+  background: none;
+}
+
+#jumbotron-button {
+  font-size: x-large;
+}
+
+.blurry {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.date-container {
+  background-color: var(--orange);
+}
+
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 3.125em;
+}
+
+.day {
+  font-weight: 800;
+  font-size: xx-large;
+}
+
+.arrow-buttons {
+  font-size: xx-large;
+}
+
+.month {
+  font-weight: 800;
+  font-size: x-large;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media only screen and (max-width: 576px) {
+  h1 {
+    font-size: xx-large;
+  }
+
+  h2 {
+    font-size: large;
+  }
+
+  #jumbotron-button {
+    font-size: medium;
+    padding: 10px 16px !important;
+  }
+}

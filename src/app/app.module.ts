@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomepageComponent } from './screens/homepage/homepage.component';
 import { MapComponent } from './search/map/map.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    MapComponent
+    MapComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

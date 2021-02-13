@@ -4,7 +4,7 @@ import { HomepageComponent } from './screens/homepage/homepage.component';
 import { MapComponent } from './search/map/map.component';
 
 const routes: Routes = [
-  { path: '', component: HomepageComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomepageComponent },
   { path: 'search', component: MapComponent },
 ];

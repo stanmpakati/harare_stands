@@ -24,6 +24,7 @@ const DIMMED_OPACITY = 0.3;
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
+  location!: string;
   private map!: Map;
   markerSource = new Vector();
   point = new Point(fromLonLat([31.053028, -17.854858]));

@@ -1,0 +1,24 @@
+.btn-group {
+  margin: 0;
+}
+
+.btn-toggle {
+  background-color: white;
+  border-radius: 32px;
+  font-size: 14px;
+  width: 10em;
+  border: 2px solid orange;
+}
+
+.btn-toggle.active {
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+}
+
+// dropdown
+
+.dropdown-btn {
+  background-color: orange;
+  color: white;
+}

@@ -1,0 +1,43 @@
+<div class="container search-cards">
+  <div class="d-flex flex-column">
+    <div class="row mb-2">Available Stands in {{ location }}</div>
+    <div class="row">
+      <div class="col-md px-0">
+        <div
+          class="btn-group btn-group-toggle"
+          ngbRadioGroup
+          name="radioBasic"
+          [(ngModel)]="availability"
+        >
+          <label ngbButtonLabel class="btn-toggle">
+            <input ngbButton type="radio" [value]="'available'" /> Available
+            Stands
+          </label>
+          <label ngbButtonLabel class="btn-toggle">
+            <input ngbButton type="radio" value="unavailable" /> On Wait List
+          </label>
+        </div>
+      </div>
+
+      <div class="col-md px-0 d-flex align-items-center justify-content-end">
+        <div>Sort by</div>
+        <div ngbDropdown class="d-inline-block">
+          <button
+            class="btn ml-1 dropdown-btn"
+            id="sortDropdown"
+            ngbDropdownToggle
+          >
+            {{ sortSetting }}
+          </button>
+          <div ngbDropdownMenu aria-labelledby="sortDropdown">
+            <button ngbDropdownItem (click)="toggleSort('price')">price</button>
+            <button ngbDropdownItem (click)="toggleSort('alphabet')">
+              alphabet
+            </button>
+            <button ngbDropdownItem (click)="toggleSort('other')">other</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

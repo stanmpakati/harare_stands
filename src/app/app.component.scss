@@ -1,3 +1,11 @@
+.page-container {
+  background-size: cover;
+  background: center / contain no-repeat url(../assets/images/harare.jpg);
+  height: 100vh;
+  display: grid;
+  //   box-sizing: border-box;
+}
+
 .orange-button {
   background-color: var(--orange);
   border: none;

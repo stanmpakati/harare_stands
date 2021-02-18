@@ -1,13 +1,21 @@
-<div class="form-group has-feedback">
-  <div class="input-group w-25">
-    <span class="input-group-addon" style="background-color: #ffffff"
-      ><span class="glyphicon glyphicon-search"></span
-    ></span>
-    <input
-      type="text"
-      class="form-control"
-      id="search-searchbar"
-      placeholder="Search..."
-    />
+<div class="form-group has-feedback row">
+  <!-- Search input -->
+  <div class="mx-2">
+    <app-search-input></app-search-input>
+  </div>
+
+  <!-- availability toggle -->
+  <div class="mr-2">
+    <app-availability-toggle></app-availability-toggle>
+  </div>
+
+  <!-- Community -->
+  <div class="mr-2">
+    <app-community-toggle></app-community-toggle>
+  </div>
+
+  <!-- minimum price -->
+  <div class="input-group-prepend mr-2">
+    <input type="number" class="form-control" placeholder="min price" />
   </div>
 </div>

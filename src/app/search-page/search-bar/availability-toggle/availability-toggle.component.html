@@ -1,0 +1,22 @@
+<div class="input-group-prepend dropdown mr-2">
+  <button
+    class="btn btn-outline orange-button-outline dropdown-toggle"
+    type="button"
+    id="availability-toggle-button"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    {{ availability }}
+  </button>
+
+  <div class="dropdown-menu" aria-labelledby="availability-toggle-button">
+    <a class="dropdown-item" (click)="toggleAvailability('Available')">
+      Available
+    </a>
+    <a class="dropdown-item" (click)="toggleAvailability('Sold')"> Sold </a>
+    <a class="dropdown-item" (click)="toggleAvailability('Wait list')">
+      On Wait list
+    </a>
+  </div>
+</div>

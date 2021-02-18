@@ -1,6 +1,8 @@
 <div class="container search-cards">
   <div class="d-flex flex-column">
-    <div class="row mb-2">Available Stands in {{ location }}</div>
+    <div class="row mb-2 mt-3 font-weight-bold">
+      Available Stands in {{ query }}
+    </div>
     <div class="row">
       <div class="col-md px-0">
         <div
@@ -39,5 +41,7 @@
         </div>
       </div>
     </div>
+
+    <app-stands class="my-3"></app-stands>
   </div>
 </div>

@@ -7,7 +7,7 @@ import OSM from 'ol/source/OSM';
 import * as olProj from 'ol/proj';
 import TileLayer from 'ol/layer/Tile';
 import { Component, OnInit } from '@angular/core';
-import { MapService } from 'src/app/services/map.service';
+import { MapService } from 'src/app/services/map-services/map.service';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
 import Vector from 'ol/layer/Vector';

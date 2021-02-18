@@ -1,3 +1,16 @@
+app-navbar {
+  max-height: 60px;
+}
+
 app-search-results {
   border-left: 1px solid grey;
+  justify-self: flex-start;
+}
+
+.search-body {
+  background-color: #fff;
+}
+
+app-map {
+  background-color: #ddd;
 }

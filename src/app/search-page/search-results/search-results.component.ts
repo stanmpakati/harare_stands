@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-search-results',
@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit {
-  location: string = 'Harare';
+  @Input() query!: string;
   availability: string = 'available';
   sortSetting: string = 'price';
+  showFilters: boolean = true;
 
   constructor() {}
 
@@ -20,5 +21,9 @@ export class SearchResultsComponent implements OnInit {
 
   toggleSort(sort: string): void {
     this.sortSetting = sort;
+  }
+
+  toggleFilters(): void {
+    this.showFilters = !this.showFilters;
   }
 }

@@ -1,0 +1,23 @@
+<div class="input-group">
+  <span class="input-group-addon"
+    ><span class="glyphicon glyphicon-search"></span
+  ></span>
+  <input
+    type="text"
+    class="form-control"
+    id="search-searchbar"
+    placeholder="Search suburb..."
+    list="search-list"
+    [formControl]="filter"
+    (change)="searchStands($event)"
+  />
+  <datalist id="search-list">
+    <option
+      class="search-option pt-4"
+      *ngFor="let suburb of filteredSearch | async"
+      [value]="suburb"
+    >
+      {{ suburb }}
+    </option>
+  </datalist>
+</div>

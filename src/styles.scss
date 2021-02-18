@@ -3,10 +3,41 @@
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
 
+// import Source sans
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,400&display=swap");
+
 // importing settings
 // @import "app/styles/settings/_variables.scss";
+$main-color: rgb(255, 136, 0);
 
 html,
 body {
   height: 100%;
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.page-container {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(./assets/images/harare.jpg);
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+}
+
+.orange-button {
+  background-color: $main-color;
+  border: none;
+  border-radius: 50px;
+  color: white;
+}
+
+.orange-button-outline {
+  background-color: white;
+  border: 2px solid $main-color;
+  border-radius: 50px;
 }

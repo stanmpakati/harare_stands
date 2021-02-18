@@ -12,6 +12,7 @@ export class DatabaseService {
   // stands BehaviorSubject
   private readonly _stands = new BehaviorSubject<StandModel[]>([]);
   private readonly _filters = new BehaviorSubject<string[]>(['none']);
+  private readonly _filteredStands = new BehaviorSubject<StandModel[]>([]);
   //
   readonly stands$ = this._stands.asObservable();
 

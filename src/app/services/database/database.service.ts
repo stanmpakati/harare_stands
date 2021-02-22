@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { of } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Community } from 'src/app/models/enums/location.enum';
+import { StandType } from 'src/app/models/enums/stand-type.enum';
 import { StandModel } from 'src/app/models/stand-model';
 import { fakeStands } from 'src/app/search-page/search-results/stands/mockStands';
 
@@ -10,11 +11,17 @@ import { fakeStands } from 'src/app/search-page/search-results/stands/mockStands
 })
 export class DatabaseService {
   // stands BehaviorSubject
-  private readonly _stands = new BehaviorSubject<StandModel[]>([]);
-  private readonly _filters = new BehaviorSubject<string[]>(['none']);
-  private readonly _filteredStands = new BehaviorSubject<StandModel[]>([]);
+  private _stands = new BehaviorSubject<StandModel[]>([]);
+  private readonly _communityFilters = new BehaviorSubject<Community>(
+    Community.none
+  );
+  private readonly _isSoldFilters = new Subject<boolean>();
+  private readonly _standTypeFilters = new BehaviorSubject<StandType>(
+    StandType.Residential
+  );
+
   //
-  readonly stands$ = this._stands.asObservable();
+  stands$ = this._stands.asObservable();
 
   // goes out to state
   get stands(): StandModel[] {
@@ -23,10 +30,7 @@ export class DatabaseService {
 
   constructor() {}
 
-  pushToObservable(vals: StandModel[]): void {
-    this._stands.next(vals);
-  }
-
+  // For search suggestions
   getAllStandLocations(): Observable<string[]> {
     // this.pushToObservable(fakeStands);
 
@@ -38,14 +42,13 @@ export class DatabaseService {
     return of(uniqueSubarbs);
   }
 
-  // Pushes searched stands into _satnds BehaviourSubject
+  // Pushes searched stands into _stands BehaviourSubject
   searchStandsFromSurbab(surbab: string): void {
     // change to using a pipe to filter stands
-    console.log(surbab);
     let filteredStands = fakeStands.filter((stand) =>
       stand.suburb.includes(surbab)
     );
-    this.pushToObservable(filteredStands);
+    this._stands.next(filteredStands);
   }
 
   sortStands(sortType: String): Observable<StandModel[]> {
@@ -60,54 +63,49 @@ export class DatabaseService {
     }
   }
 
-  filterStands(fPriceLow: number, fPriceHi: number): Observable<StandModel[]> {
-    return of(
-      fakeStands.filter(
-        (stand) => stand.price > fPriceLow && stand.price < fPriceHi
+  communityFilterChanged(value: Community) {
+    // Everytime we have new value, we pass it to the filter$
+    this._communityFilters.next(value);
+
+    console.log(this._stands.value);
+    console.log(this._communityFilters.value);
+
+    this.stands$ = this._stands.pipe(
+      map((stands) =>
+        stands.filter((stand) =>
+          stand.community.match(this._communityFilters.value)
+        )
+      )
+    );
+
+    this.stands$.subscribe({
+      next: (stands) => console.log(stands),
+    });
+  }
+
+  // handle requests for sold land
+  filterIsSold(status: boolean) {
+    this._isSoldFilters.next(status);
+
+    this.stands$ = this._stands.pipe(
+      map((stands) => stands.filter((stand) => stand.isSold == status))
+    );
+  }
+
+  // filter from type of stands
+  standTypeFilterChange(value: StandType) {
+    this._standTypeFilters.next(value);
+
+    this.stands$ = this._stands.pipe(
+      map((stands) =>
+        stands.filter((stand) =>
+          stand.standType.match(this._standTypeFilters.value)
+        )
       )
     );
   }
 
-  filterWithCommunitytype(communityType: Community): void {
-    let myStands$ = of(fakeStands);
-    myStands$
-      .pipe
-      // filter:
-      ();
+  resetFilter() {
+    this.stands$ = this._stands;
   }
 }
-
-// export class TodosStoreService {
-
-//   // - We set the initial state in BehaviorSubject's constructor
-//   // - Nobody outside the Store should have access to the BehaviorSubject
-//   //   because it has the write rights
-//   // - Writing to state should be handled by specialized Store methods (ex: addTodo, removeTodo, etc)
-//   // - Create one BehaviorSubject per store entity, for example if you have TodoGroups
-//   //   create a new BehaviorSubject for it, as well as the observable$, and getters/setters
-//   private readonly _todos = new BehaviorSubject<[]>([]);
-
-//   // Expose the observable$ part of the _todos subject (read only stream)
-//   readonly todos$ = this._todos.asObservable();
-
-//   // the getter will return the last value emitted in _todos subject
-//   get todos(): [] {
-//     return this._todos.getValue();
-//   }
-
-//   // assigning a value to this.todos will push it onto the observable
-//   // and down to all of its subsribers (ex: this.todos = [])
-//   set todos(val: []) {
-//     this._todos.next(val);
-//   }
-
-//   addTodo(title: string) {
-//     // we assaign a new copy of todos by adding a new todo to it
-//     // with automatically assigned ID ( don't do this at home, use uuid() )
-//     this.todos = [
-//       ...this.todos,
-
-//     ];
-//   }
-
-// }

@@ -6,13 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./availability-toggle.component.scss'],
 })
 export class AvailabilityToggleComponent implements OnInit {
-  availability: string = 'available';
+  availability!: boolean;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  toggleAvailability(availability: string): void {
+  toggleAvailability(availability: boolean): void {
     this.availability = availability;
   }
 }

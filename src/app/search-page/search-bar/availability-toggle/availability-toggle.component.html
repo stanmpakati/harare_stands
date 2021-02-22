@@ -1,22 +1,19 @@
 <div class="input-group-prepend dropdown mr-2">
-  <button
-    class="btn btn-outline orange-button-outline dropdown-toggle"
-    type="button"
-    id="availability-toggle-button"
-    data-toggle="dropdown"
-    aria-haspopup="true"
-    aria-expanded="false"
+  <!-- <button
+    class="btn orange-button-outline"
+    id="availability-toggle"
+    ngbDropdownToggle
   >
-    {{ availability }}
+    Is available
   </button>
-
-  <div class="dropdown-menu" aria-labelledby="availability-toggle-button">
-    <a class="dropdown-item" (click)="toggleAvailability('Available')">
-      Available
-    </a>
-    <a class="dropdown-item" (click)="toggleAvailability('Sold')"> Sold </a>
-    <a class="dropdown-item" (click)="toggleAvailability('Wait list')">
-      On Wait list
-    </a>
-  </div>
+  <div ngbDropdownMenu aria-labelledby="availability-toggle">
+    <button ngbDropdownItem value="true" (click)="toggleAvailability(true)">
+      Sold
+    </button>
+    <div ngbDropdownMenu aria-labelledby="availability-toggle">
+      <button ngbDropdownItem value="true" (click)="toggleAvailability(false)">
+        Not sold
+      </button>
+    </div>
+  </div> -->
 </div>

@@ -1,7 +1,5 @@
 @import url(https://openlayers.org/en/v4.6.5/css/ol.css);
 
-.search_body {
-}
 .map-container {
   width: 100%;
   height: 100%;
@@ -10,6 +8,14 @@
 
 .search-cards {
   background-color: grey;
+}
+
+#popup {
+  height: 25em;
+  width: 19em;
+  background-color: white;
+  border-radius: 3px;
+  z-index: 1;
 }
 
 @media only screen and (min-width: 600px) {

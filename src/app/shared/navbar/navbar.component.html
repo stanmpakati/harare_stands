@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark mb-3">
-  <a class="navbar-brand fw-bold" [routerLink]="'.'">Harare Stands</a>
+  <a class="navbar-brand fw-bold" [routerLink]="['/home']">Harare Stands</a>
 
   <button
     class="navbar-toggler"
@@ -12,13 +12,24 @@
   <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
     <ul class="navbar-nav ml-auto mb-2 mb-md-0">
       <li class="nav-item active">
-        <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true"
-          >Features</a
+        <a
+          class="nav-link"
+          [routerLink]="['/home']"
+          (click)="isMenuCollapsed = true"
+          >Home</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/search']"
+          (click)="isMenuCollapsed = true"
+          >Search</a
         >
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true"
-          >Examples</a
+          >Contact</a
         >
       </li>
       <li class="nav-item ml-2">

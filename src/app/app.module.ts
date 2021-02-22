@@ -16,6 +16,10 @@ import { StandComponent } from './search-page/search-results/stands/stand/stand.
 import { SearchInputComponent } from './shared/search-input/search-input.component';
 import { AvailabilityToggleComponent } from './search-page/search-bar/availability-toggle/availability-toggle.component';
 import { CommunityToggleComponent } from './search-page/search-bar/community-toggle/community-toggle.component';
+import { MinPriceInputComponent } from './search-page/search-bar/min-price-input/min-price-input.component';
+import { GlenMapComponent } from './search-page/glen-map/glen-map.component';
+import { StandTypeToggleComponent } from './search-page/search-bar/stand-type-toggle/stand-type-toggle.component';
+import { StandDetailsComponent } from './shared/stand-details/stand-details.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +32,13 @@ import { CommunityToggleComponent } from './search-page/search-bar/community-tog
     SearchBarComponent,
     StandsComponent,
     StandComponent,
+    StandDetailsComponent,
+    StandTypeToggleComponent,
     SearchInputComponent,
     AvailabilityToggleComponent,
     CommunityToggleComponent,
+    MinPriceInputComponent,
+    GlenMapComponent,
   ],
   imports: [
     BrowserModule,

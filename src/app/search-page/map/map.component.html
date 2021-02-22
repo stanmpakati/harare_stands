@@ -1,1 +1,12 @@
-<div class="map-container h-100 w-100" id="map"></div>
+<div class="map-container h-100 w-100" id="map">
+  <div style="display: none">
+    <div id="popup">
+      <ng-template #popContent
+        >Hello, <b>{{ details }}</b
+        >!</ng-template
+      >
+      <ng-template #popTitle>Fancy <b>content!!</b></ng-template>
+    </div>
+    <div id="marker" title="Marker"></div>
+  </div>
+</div>

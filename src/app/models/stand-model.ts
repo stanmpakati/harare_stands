@@ -6,7 +6,7 @@ export class StandModel {
   community!: Community;
   standType!: StandType;
   size!: number;
-  isAvailable: boolean = true;
+  isSold: boolean = true;
   developmentCompany!: string;
   dateOfRelease!: Date;
   geoPoint!: [lat: number, long: number];

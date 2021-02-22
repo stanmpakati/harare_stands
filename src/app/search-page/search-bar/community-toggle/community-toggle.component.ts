@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Community } from 'src/app/models/enums/location.enum';
+import {
+  Community,
+  CommunityToLabelMapping,
+} from 'src/app/models/enums/location.enum';
 import { DatabaseService } from 'src/app/services/database/database.service';
 
 @Component({
@@ -8,20 +11,39 @@ import { DatabaseService } from 'src/app/services/database/database.service';
   styleUrls: ['./community-toggle.component.scss'],
 })
 export class CommunityToggleComponent implements OnInit {
-  communityTypes: string[];
-  selectedCommunity: string = 'No community selected';
-  c = Community;
+  communityTypes!: string[];
+  selectedCommunity: Community = Community.none;
 
   constructor(private databaseService: DatabaseService) {
-    this.communityTypes = Object.keys(this.c);
+    this.communityTypes = Object.keys(Community);
     // this.communityTypes.push('')
-    console.log(this.communityTypes);
+    // console.log(this.communityTypes);
   }
 
   ngOnInit(): void {}
 
   filterFromCommunityType(communityTypeFilter: string) {
-    this.selectedCommunity = communityTypeFilter;
-    // this.databaseService.filterWithCommunitytype(comm)
+    let comm: Community;
+    switch (communityTypeFilter) {
+      case 'none':
+        comm = Community.none;
+        break;
+      case 'HighDensity':
+        comm = Community.HighDensity;
+        break;
+      case 'MidDensity':
+        comm = Community.MidDensity;
+        break;
+      case 'LowDensity':
+        comm = Community.LowDensity;
+        break;
+      default:
+        comm = Community.none;
+        break;
+    }
+
+    this.selectedCommunity = comm;
+
+    this.databaseService.communityFilterChanged(comm);
   }
 }

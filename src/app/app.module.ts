@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HomepageComponent } from './screens/homepage/homepage.component';
+import { HomepageComponent } from './homepage/homepage.component';
 import { MapComponent } from './search-page/map/map.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SearchPageComponent } from './search-page/search-page.component';
@@ -20,6 +20,10 @@ import { MinPriceInputComponent } from './search-page/search-bar/min-price-input
 import { GlenMapComponent } from './search-page/glen-map/glen-map.component';
 import { StandTypeToggleComponent } from './search-page/search-bar/stand-type-toggle/stand-type-toggle.component';
 import { StandDetailsComponent } from './shared/stand-details/stand-details.component';
+import { CitiesComponent } from './homepage/cities/cities.component';
+import { StandtypeComponent } from './homepage/standtype/standtype.component';
+import { StandModalComponent } from './search-page/search-results/stands/stand/stand-modal/stand-modal.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -39,6 +43,9 @@ import { StandDetailsComponent } from './shared/stand-details/stand-details.comp
     CommunityToggleComponent,
     MinPriceInputComponent,
     GlenMapComponent,
+    CitiesComponent,
+    StandtypeComponent,
+    StandModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +53,7 @@ import { StandDetailsComponent } from './shared/stand-details/stand-details.comp
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

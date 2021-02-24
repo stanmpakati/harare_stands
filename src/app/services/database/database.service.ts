@@ -51,15 +51,25 @@ export class DatabaseService {
     this._stands.next(filteredStands);
   }
 
-  sortStands(sortType: String): Observable<StandModel[]> {
+  sortStands(sortType: String): void {
+    console.log(sortType);
+
     if (sortType === 'price') {
-      return of(
-        fakeStands.sort((stand1, stand2) =>
-          stand1.price < stand2.price ? -1 : 1
+      this.stands$ = this._stands.pipe(
+        map((stands) =>
+          stands.sort((stand1, stand2) =>
+            stand1.price < stand2.price ? -1 : 1
+          )
         )
       );
-    } else {
-      return of(fakeStands);
+    } else if (sortType === 'size') {
+      this.stands$ = this._stands.pipe(
+        map((stands) =>
+          stands.sort((stand1, stand2) =>
+            stand1.price < stand2.price ? -1 : 1
+          )
+        )
+      );
     }
   }
 
@@ -107,5 +117,26 @@ export class DatabaseService {
 
   resetFilter() {
     this.stands$ = this._stands;
+  }
+
+  getCities() {
+    // filter array of objects and return surbubs
+    let cities: string[] = fakeStands.map((stand) => stand.city);
+    // filter suburbs and get unique subarbs
+    let uniqueCity: string[] = [...new Set(cities)];
+
+    return of(uniqueCity);
+  }
+
+  searchByCity(city: string) {
+    let filteredStands = fakeStands.filter((stand) =>
+      stand.city.includes(city)
+    );
+    this._stands.next(filteredStands);
+  }
+
+  searchByStandType(type: StandType) {
+    let filteredStands = fakeStands.filter((stand) => stand.standType === type);
+    this._stands.next(filteredStands);
   }
 }

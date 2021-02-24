@@ -1,0 +1,34 @@
+<div class="d-flex h-100 w-100 text-white bg-dark page-container">
+  <div class="cover-container d-flex w-100 h-100 px-3 mx-auto flex-column">
+    <header class="mt-2">
+      <app-navbar></app-navbar>
+    </header>
+
+    <!-- Main Content -->
+    <main class="px-3 d-flex flex-column h-100">
+      <!-- Jumbotron -->
+      <div class="jumbotron d-flex flex-column align-items-center">
+        <h1 class="font-weight-bold">Find Your Dream</h1>
+        <h1 class="font-weight-bold">House</h1>
+        <div class="mb-4 limit-width">
+          <app-search-input class="py-4 mb-2"></app-search-input>
+        </div>
+        <div class="row">
+          <div class="col">
+            <app-cities></app-cities>
+          </div>
+          <div class="col">
+            <app-standtype></app-standtype>
+          </div>
+        </div>
+        <button
+          class="btn px-5 orange-button my-2 font-white"
+          id="jumbotron-button"
+          (click)="searchStand()"
+        >
+          Search
+        </button>
+      </div>
+    </main>
+  </div>
+</div>

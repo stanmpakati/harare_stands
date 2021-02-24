@@ -1,0 +1,17 @@
+<div ngbDropdown class="d-inline-block">
+  <button class="btn orange-button" id="cities-toggle-button" ngbDropdownToggle>
+    City
+  </button>
+  <div ngbDropdownMenu aria-labelledby="cities-toggle-button">
+    <a [routerLink]="['/search']"
+      ><button
+        ngbDropdownItem
+        *ngFor="let city of cities$ | async"
+        [value]="city"
+        (click)="searchCity(city)"
+      >
+        {{ city }}
+      </button></a
+    >
+  </div>
+</div>

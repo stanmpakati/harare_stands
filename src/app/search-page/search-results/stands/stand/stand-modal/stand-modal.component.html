@@ -1,0 +1,62 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">
+    {{ stand.address }}, {{ stand.suburb }} <br />
+    {{ stand.city }}
+  </h4>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <span class="h5"
+    >Price: $<span class="font-weight-bold">{{ stand.price }}</span></span
+  >
+  <br />
+  <span class="h5"
+    >Size of Stand: <span class="font-weight-bold">{{ stand.size }}</span
+    >m&#xB2;</span
+  >
+  <hr />
+  <p class="h3">About Stand</p>
+  <p>
+    This stand is located in {{ stand.suburb }}, a {{ stand.community }} suburb
+    in {{ stand.city }}. The property was developed by
+    {{ stand.developmentCompany }} on {{ stand.dateOfRelease }}
+  </p>
+  <p class="danger">The property is for {{ stand.standType }} use only!</p>
+  <div class="alert alert-warning" role="alert" *ngIf="stand.isSold">
+    Property is already sold
+  </div>
+  <p class="lead" *ngIf="!stand.isSold">Property is on sale</p>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">For more info Contact us at:</h5>
+      <div class="my-3">
+        <button class="btn circle-icon mr-3" style="background: red">
+          <fa-icon [icon]="envelope"></fa-icon>
+        </button>
+        <button class="btn circle-icon mr-3" style="background: #25d366">
+          <fa-icon [icon]="whatsappIcon"></fa-icon>
+        </button>
+        <button class="btn circle-icon mr-3" style="background: #111">
+          <fa-icon [icon]="phoneIcon"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.close('Save click')"
+  >
+    Buy
+  </button>
+</div>

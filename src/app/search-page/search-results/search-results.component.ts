@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DatabaseService } from 'src/app/services/database/database.service';
 
 @Component({
   selector: 'app-search-results',
@@ -11,7 +12,7 @@ export class SearchResultsComponent implements OnInit {
   sortSetting: string = 'price';
   showFilters: boolean = true;
 
-  constructor() {}
+  constructor(private dbService: DatabaseService) {}
 
   ngOnInit(): void {}
 
@@ -21,6 +22,7 @@ export class SearchResultsComponent implements OnInit {
 
   toggleSort(sort: string): void {
     this.sortSetting = sort;
+    this.dbService.sortStands(sort);
   }
 
   toggleFilters(): void {

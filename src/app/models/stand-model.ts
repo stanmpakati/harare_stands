@@ -8,9 +8,10 @@ export class StandModel {
   size!: number;
   isSold: boolean = true;
   developmentCompany!: string;
-  dateOfRelease!: Date;
+  dateOfRelease!: string;
   geoPoint!: [lat: number, long: number];
   address!: string;
   suburb!: string;
   price!: number;
+  city: string = 'Harare';
 }

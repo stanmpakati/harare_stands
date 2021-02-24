@@ -1,4 +1,4 @@
-<div class="stands-container">
+<div class="stands-container overflow-auto">
   <app-stand
     *ngFor="let stand of databaseService.stands$ | async"
     [stand]="stand"

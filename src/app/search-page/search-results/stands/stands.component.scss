@@ -1,0 +1,9 @@
+.stands-container {
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.stands-container::-webkit-scrollbar {
+  display: none;
+}

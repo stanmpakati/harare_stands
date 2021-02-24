@@ -1,0 +1,17 @@
+<div ngbDropdown class="d-inline-block">
+  <button class="btn orange-button" id="cities-toggle-button" ngbDropdownToggle>
+    Type of Stand
+  </button>
+  <div ngbDropdownMenu aria-labelledby="cities-toggle-button">
+    <a [routerLink]="['/search']"
+      ><button
+        ngbDropdownItem
+        *ngFor="let type of standTypes"
+        [value]="type"
+        (click)="searchStandType(type)"
+      >
+        {{ type }}
+      </button></a
+    >
+  </div>
+</div>

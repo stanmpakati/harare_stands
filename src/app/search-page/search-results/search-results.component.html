@@ -4,7 +4,9 @@
       Available Stands in {{ query }}
     </div>
     <div class="row">
-      <div class="col-md px-0">
+      <div
+        class="col-sm px-0 d-flex justify-content-center justify-content-md-start"
+      >
         <div
           class="btn-group btn-group-toggle"
           ngbRadioGroup
@@ -16,12 +18,14 @@
             Stands
           </label>
           <label ngbButtonLabel class="btn-toggle">
-            <input ngbButton type="radio" value="unavailable" /> On Wait List
+            <input ngbButton type="radio" value="unavailable" /> Already Sold
           </label>
         </div>
       </div>
 
-      <div class="col-md px-0 d-flex align-items-center justify-content-end">
+      <div
+        class="col-sm px-0 d-flex align-items-center justify-content-start justify-content-md-end"
+      >
         <div>Sort by</div>
         <div ngbDropdown class="d-inline-block">
           <button
@@ -33,9 +37,7 @@
           </button>
           <div ngbDropdownMenu aria-labelledby="sortDropdown">
             <button ngbDropdownItem (click)="toggleSort('price')">price</button>
-            <button ngbDropdownItem (click)="toggleSort('alphabet')">
-              alphabet
-            </button>
+            <button ngbDropdownItem (click)="toggleSort('size')">size</button>
             <button ngbDropdownItem (click)="toggleSort('other')">other</button>
           </div>
         </div>

@@ -1,14 +1,40 @@
-<div class="page-container h-100 d-flex flex-column">
+<div class="page-container h-100 d-flex flex-column" id="search-page">
   <app-navbar></app-navbar>
   <div class="search-container h-100 w-100">
     <div class="search-bar pl-3">
       <app-search-bar></app-search-bar>
     </div>
-    <div class="search-body h-100 w-100 row">
-      <div class="h-100 w-100 col-sm-5 p-0">
+
+    <!-- Button for switchong views -->
+    <button
+      class="switch-button btn"
+      (click)="switchDisplay()"
+      *ngIf="currentDisplay !== 'desktop'"
+    >
+      Display {{ nextDisplay }}
+    </button>
+
+    <!-- views -->
+    <div
+      class="search-body m-0 p-0 h-100 w-100 row"
+      [ngSwitch]="currentDisplay"
+    >
+      <div class="h-100 w-100 col-sm-5 p-0 app-map" *ngSwitchCase="'Map'">
         <app-glen-map></app-glen-map>
       </div>
-      <app-search-results class="col-sm-7"></app-search-results>
+      <div class="col-sm-7 app-search-results" *ngSwitchCase="'Cards'">
+        <app-search-results></app-search-results>
+      </div>
+
+      <!-- desktop view -->
+      <div class="search-body m-0 p-0 h-100 w-100 row" *ngSwitchDefault>
+        <div class="h-100 w-100 col-sm-5 p-0 app-map">
+          <app-glen-map></app-glen-map>
+        </div>
+        <div class="col-sm-7 app-search-results">
+          <app-search-results></app-search-results>
+        </div>
+      </div>
     </div>
   </div>
 </div>

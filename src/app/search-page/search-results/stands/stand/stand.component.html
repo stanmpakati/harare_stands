@@ -1,12 +1,23 @@
 <div *ngIf="stand" class="card mb-3">
   <div class="card-body">
-    <h5 class="card-title">Stand in {{ stand.suburb }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{ stand.address }}</h6>
-    <hr />
+    <div class="row d-flex justify-content-between px-4">
+      <h5 class="card-title">Stand in {{ stand.suburb }}</h5>
+      <h5 class="fw-bold">${{ stand.price }}</h5>
+    </div>
+    <h6 class="card-subtitle my-2 text-muted">
+      {{ stand.address }}
+    </h6>
+    <h5 class="card-subtitle mb-2 text-muted">{{ stand.city }}</h5>
     <div class="card-footer">
       <div class="card-text d-flex justify-content-between">
         <small class="text-muted"> {{ stand.size }}m2 </small>
-        <small class="text-muted"> ${{ stand.price }} </small>
+        <button
+          class="btn orange-button"
+          (click)="open()"
+          [attr.data-target]="stand"
+        >
+          View more
+        </button>
       </div>
     </div>
   </div>

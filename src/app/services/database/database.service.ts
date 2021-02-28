@@ -139,4 +139,9 @@ export class DatabaseService {
     let filteredStands = fakeStands.filter((stand) => stand.standType === type);
     this._stands.next(filteredStands);
   }
+
+  searchCommunity(type: Community) {
+    let filteredStands = fakeStands.filter((stand) => stand.community === type);
+    this._stands.next(filteredStands);
+  }
 }

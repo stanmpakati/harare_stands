@@ -15,7 +15,7 @@ import { fromLonLat, toLonLat } from 'ol/proj';
 import MultiPoint from 'ol/geom/MultiPoint';
 import Overlay from 'ol/Overlay';
 import { toStringHDMS } from 'ol/coordinate';
-import * as $ from 'jquery';
+// import * as $ from 'jquery';
 
 const INITIAL_OPACITY = 1;
 const DIMMED_OPACITY = 0.3;
@@ -109,16 +109,16 @@ export class MapComponent implements OnInit {
       const coordinate = evt.coordinate;
       const hdms = toStringHDMS(toLonLat(coordinate));
 
-      ($(element) as any).popover('dispose');
-      popup.setPosition(coordinate);
-      ($(element) as any).popover({
-        placement: 'top',
-        animation: true,
-        html: true,
-        content:
-          '<p>The location you clicked was:</p><code>' + hdms + '</code>',
-      });
-      ($(element) as any).popover('show');
+      // ($(element) as any).popover('dispose');
+      // popup.setPosition(coordinate);
+      // ($(element) as any).popover({
+      //   placement: 'top',
+      //   animation: true,
+      //   html: true,
+      //   content:
+      //     '<p>The location you clicked was:</p><code>' + hdms + '</code>',
+      // });
+      // ($(element) as any).popover('show');
     });
 
     this.mapService.getDim().subscribe((x) => {

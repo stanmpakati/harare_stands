@@ -13,11 +13,11 @@
   </button>
 </div>
 <div class="modal-body">
-  <span class="h5"
+  <span class="h6"
     >Price: $<span class="font-weight-bold">{{ stand.price }}</span></span
   >
   <br />
-  <span class="h5"
+  <span class="h6"
     >Size of Stand: <span class="font-weight-bold">{{ stand.size }}</span
     >m&#xB2;</span
   >
@@ -38,13 +38,25 @@
     <div class="card-body">
       <h5 class="card-title">For more info Contact us at:</h5>
       <div class="my-3">
-        <button class="btn circle-icon mr-3" style="background: red">
+        <button
+          class="btn circle-icon mr-3"
+          style="background: red"
+          title="email"
+        >
           <fa-icon [icon]="envelope"></fa-icon>
         </button>
-        <button class="btn circle-icon mr-3" style="background: #25d366">
+        <button
+          class="btn circle-icon mr-3"
+          style="background: #25d366"
+          title="whatsapp"
+        >
           <fa-icon [icon]="whatsappIcon"></fa-icon>
         </button>
-        <button class="btn circle-icon mr-3" style="background: #111">
+        <button
+          class="btn circle-icon mr-3"
+          style="background: #111"
+          title="phone"
+        >
           <fa-icon [icon]="phoneIcon"></fa-icon>
         </button>
       </div>
@@ -52,11 +64,7 @@
   </div>
 </div>
 <div class="modal-footer">
-  <button
-    type="button"
-    class="btn btn-outline-dark"
-    (click)="activeModal.close('Save click')"
-  >
+  <button type="button" class="btn orange-button" (click)="buyStand()">
     Buy
   </button>
 </div>

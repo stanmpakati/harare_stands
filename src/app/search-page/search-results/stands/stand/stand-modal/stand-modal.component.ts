@@ -3,6 +3,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { StandModel } from 'src/app/models/stand-model';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stand-modal',
@@ -15,7 +16,13 @@ export class StandModalComponent implements OnInit {
   whatsappIcon = faWhatsapp;
   phoneIcon = faPhone;
 
-  constructor(public activeModal: NgbActiveModal) {}
+  constructor(public activeModal: NgbActiveModal, private router: Router) {}
 
   ngOnInit(): void {}
+
+  buyStand() {
+    this.router.navigateByUrl('/buy');
+
+    this.activeModal.close('Save click');
+  }
 }

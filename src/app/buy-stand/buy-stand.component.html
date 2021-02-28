@@ -1,0 +1,129 @@
+<div class="container">
+  <div class="row">
+    <div id="left" class="col-md-6">
+      <a [routerLink]="['/home']" (click)="logout()">Back to Stands</a>
+      <h5>
+        <strong>Build your house in no time, start by purchasing land</strong>
+      </h5>
+      <br />
+      <img
+        style="max-width: 95%; max-height: 40%; margin: 0px 0px 6px 0px"
+        class="img-responsive"
+        [src]="'assets/land.png'"
+      />
+
+      <hr />
+      <h5><strong>Methods</strong></h5>
+      <img
+        style="max-width: 95%; margin: 0px"
+        class="img-responsive"
+        [src]="'assets/pay.png'"
+      />
+    </div>
+
+    <div id="right" class="col-md-6">
+      <mat-card class="bg-light">
+        <mat-card-header>
+          <h5>
+            <strong>Payment</strong>
+          </h5>
+        </mat-card-header>
+        <mat-card-content class="col-md-12">
+          <form *ngIf="on" class="text-center row" style="color: #757575">
+            <div class="text-center col-md-6">
+              <mat-form-field style="margin-left: 20px">
+                <mat-label>Firstname</mat-label>
+                <input type="text" matInput />
+              </mat-form-field>
+              <mat-form-field style="margin-left: 20px">
+                <mat-label>LastName</mat-label>
+                <input type="text" matInput />
+              </mat-form-field>
+            </div>
+
+            <div class="text-center col-md-6">
+              <mat-form-field style="margin-left: 20px">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput />
+              </mat-form-field>
+
+              <mat-form-field style="margin-left: 20px">
+                <mat-label>Phone</mat-label>
+                <input type="tel" matInput />
+              </mat-form-field>
+            </div>
+          </form>
+          <!-- <card-details *ngIf="cardnum"></card-details> -->
+          <div id="terms" class="text-center" style="color: #757575">
+            <div class="text-center">
+              <p *ngIf="!incardDetails">
+                We save your email and credentails only for refence after
+                payment and feedback Click &nbsp;<span
+                  style="font-weight: 800; color: orange"
+                >
+                  <!-- <mat-checkbox labelPosition="before" [(ngModel)]="agreeCheck">Agree </mat-checkbox> -->
+                  Agree
+                  <input
+                    type="checkbox"
+                    [checked]="agreeCheck"
+                    (click)="check()"
+                  /> </span
+                >&nbsp; to continue
+              </p>
+              <button
+                class="btn bg-green"
+                style="text-align: center"
+                mat-button
+                (click)="!incardDetails ? next() : back()"
+              >
+                {{ btnNext }}
+              </button>
+            </div>
+
+            <hr />
+
+            <div class="form-row">
+              <mat-card-header>
+                <h5><strong>Pay With</strong></h5>
+              </mat-card-header>
+
+              <!--content2-->
+              <div class="col-md-12">
+                <mat-icon>money</mat-icon>
+                <mat-card-content class="row">
+                  <button
+                    class="btn bg-green"
+                    mat-button
+                    (click)="payResoonse()"
+                    [disabled]="payButton"
+                  >
+                    PayNow
+                  </button>
+                  &nbsp;
+                  <button
+                    class="btn bg-green"
+                    mat-button
+                    (click)="payResoonse()"
+                    [disabled]="payButton"
+                  >
+                    MasterCard
+                  </button>
+                  &nbsp;
+                  <button
+                    class="btn bg-green"
+                    mat-button
+                    (click)="payResoonse()"
+                    [disabled]="payButton"
+                  >
+                    Visa Card
+                  </button>
+                  &nbsp;
+                </mat-card-content>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

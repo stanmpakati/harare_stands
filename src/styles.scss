@@ -8,7 +8,7 @@
 
 // importing settings
 // @import "app/styles/settings/_variables.scss";
-$main-color: rgb(255, 136, 0);
+$main-color: #006400;
 
 html,
 body {
@@ -40,4 +40,13 @@ body {
   background-color: white;
   border: 2px solid $main-color;
   border-radius: 50px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

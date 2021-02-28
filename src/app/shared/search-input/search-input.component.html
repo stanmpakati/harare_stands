@@ -1,4 +1,4 @@
-<div class="input-group">
+<!-- <div class="input-group">
   <span class="input-group-addon"
     ><span class="glyphicon glyphicon-search"></span
   ></span>
@@ -20,4 +20,35 @@
       {{ suburb }}
     </option>
   </datalist>
-</div>
+</div> -->
+
+<form class="example-form">
+  <mat-form-field
+    class="example-full-width"
+    appearance="outline"
+    style="border-width: 4px"
+  >
+    <mat-label>Search subarb...</mat-label>
+    <input
+      type="text"
+      class=""
+      id="search-searchbar"
+      placeholder="Search subarb..."
+      aria-label="Number"
+      matInput
+      [formControl]="filter"
+      [matAutocomplete]="auto"
+      (change)="searchStands($event)"
+    />
+
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let suburb of filteredSearch | async"
+        [value]="suburb"
+        (click)="goToSearch(suburb)"
+      >
+        {{ suburb }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

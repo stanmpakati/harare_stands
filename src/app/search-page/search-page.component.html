@@ -20,7 +20,7 @@
       [ngSwitch]="currentDisplay"
     >
       <div class="h-100 w-100 col-sm-5 p-0 app-map" *ngSwitchCase="'Map'">
-        <app-glen-map></app-glen-map>
+        <app-map></app-map>
       </div>
       <div class="col-sm-7 app-search-results" *ngSwitchCase="'Cards'">
         <app-search-results></app-search-results>
@@ -29,7 +29,7 @@
       <!-- desktop view -->
       <div class="search-body m-0 p-0 h-100 w-100 row" *ngSwitchDefault>
         <div class="h-100 w-100 col-sm-5 p-0 app-map">
-          <app-glen-map></app-glen-map>
+          <app-map></app-map>
         </div>
         <div class="col-sm-7 app-search-results">
           <app-search-results></app-search-results>

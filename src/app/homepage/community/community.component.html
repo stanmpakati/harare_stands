@@ -1,0 +1,21 @@
+<div ngbDropdown class="d-inline-block">
+  <button
+    class="btn orange-button w-100"
+    id="cities-toggle-button"
+    ngbDropdownToggle
+  >
+    Areas
+  </button>
+  <div ngbDropdownMenu aria-labelledby="cities-toggle-button">
+    <a [routerLink]="['/search']"
+      ><button
+        ngbDropdownItem
+        *ngFor="let type of communities"
+        [value]="type"
+        (click)="searchCommunity(type)"
+      >
+        {{ type }}
+      </button></a
+    >
+  </div>
+</div>

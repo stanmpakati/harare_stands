@@ -8,7 +8,7 @@ import { DatabaseService } from 'src/app/services/database/database.service';
 })
 export class SearchResultsComponent implements OnInit {
   @Input() query!: string;
-  availability: string = 'available';
+  availability: boolean = true;
   sortSetting: string = 'price';
   showFilters: boolean = true;
 
@@ -16,8 +16,8 @@ export class SearchResultsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  toggleAvailability(availability: string): void {
-    this.availability = availability;
+  isSoldNot() {
+    this.dbService.filterIsSold(this.availability);
   }
 
   toggleSort(sort: string): void {
@@ -27,5 +27,9 @@ export class SearchResultsComponent implements OnInit {
 
   toggleFilters(): void {
     this.showFilters = !this.showFilters;
+  }
+
+  resetFilters() {
+    this.dbService.resetFilter();
   }
 }

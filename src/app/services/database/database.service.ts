@@ -37,7 +37,7 @@ export class DatabaseService {
     // filter array of objects and return surbubs
     let suburbs: string[] = fakeStands.map((stand) => stand.suburb);
     // filter suburbs and get unique subarbs
-    let uniqueSubarbs: string[] = [...new Set(suburbs)].splice(0, 5);
+    let uniqueSubarbs: string[] = [...new Set(suburbs)];
 
     return of(uniqueSubarbs);
   }
@@ -52,10 +52,8 @@ export class DatabaseService {
   }
 
   sortStands(sortType: String): void {
-    console.log(sortType);
-
     if (sortType === 'price') {
-      this.stands$ = this._stands.pipe(
+      this.stands$ = this.stands$.pipe(
         map((stands) =>
           stands.sort((stand1, stand2) =>
             stand1.price < stand2.price ? -1 : 1
@@ -75,11 +73,6 @@ export class DatabaseService {
 
   communityFilterChanged(value: Community) {
     // Everytime we have new value, we pass it to the filter$
-    this._communityFilters.next(value);
-
-    console.log(this._stands.value);
-    console.log(this._communityFilters.value);
-
     this.stands$ = this._stands.pipe(
       map((stands) =>
         stands.filter((stand) =>

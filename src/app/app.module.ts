@@ -17,7 +17,6 @@ import { SearchInputComponent } from './shared/search-input/search-input.compone
 import { AvailabilityToggleComponent } from './search-page/search-bar/availability-toggle/availability-toggle.component';
 import { CommunityToggleComponent } from './search-page/search-bar/community-toggle/community-toggle.component';
 import { MinPriceInputComponent } from './search-page/search-bar/min-price-input/min-price-input.component';
-import { GlenMapComponent } from './search-page/glen-map/glen-map.component';
 import { StandTypeToggleComponent } from './search-page/search-bar/stand-type-toggle/stand-type-toggle.component';
 import { StandDetailsComponent } from './shared/stand-details/stand-details.component';
 import { CitiesComponent } from './homepage/cities/cities.component';
@@ -43,6 +42,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommunityComponent } from './homepage/community/community.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { AboutComponent } from './about/about.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,6 @@ import { CommunityComponent } from './homepage/community/community.component';
     AvailabilityToggleComponent,
     CommunityToggleComponent,
     MinPriceInputComponent,
-    GlenMapComponent,
     CitiesComponent,
     StandtypeComponent,
     StandModalComponent,
@@ -69,6 +71,8 @@ import { CommunityComponent } from './homepage/community/community.component';
     BuyStandComponent,
     CardDetailsComponent,
     CommunityComponent,
+    AboutComponent,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +93,9 @@ import { CommunityComponent } from './homepage/community/community.component';
     MatCheckboxModule,
     MatProgressBarModule,
     BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

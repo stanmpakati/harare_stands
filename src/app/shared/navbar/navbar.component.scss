@@ -2,3 +2,12 @@
   font-weight: 700;
   //   font-size: large;
 }
+
+.my-dropdown {
+  z-index: 9999 !important;
+}
+
+.collapse {
+  z-index: 9999 !important;
+  // background-color: rgb(70, 70, 70);
+}

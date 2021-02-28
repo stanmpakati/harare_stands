@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div id="left" class="col-md-6">
-      <a [routerLink]="['/home']" (click)="logout()">Back to Stands</a>
+      <a [routerLink]="['/home']" (click)="logout()">Logout</a>
       <h5>
         <strong>Build your house in no time, start by purchasing land</strong>
       </h5>
@@ -71,7 +71,7 @@
                 >&nbsp; to continue
               </p>
               <button
-                class="btn bg-green"
+                class="btn orange-button"
                 style="text-align: center"
                 mat-button
                 (click)="!incardDetails ? next() : back()"

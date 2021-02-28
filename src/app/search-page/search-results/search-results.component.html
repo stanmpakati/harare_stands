@@ -1,7 +1,7 @@
 <div class="container search-cards">
   <div class="d-flex flex-column">
-    <div class="row mb-2 mt-3 font-weight-bold">
-      Available Stands in {{ query }}
+    <div class="btn mb-2 mt-3 font-weight-bold" (click)="resetFilters()">
+      Reset Filters
     </div>
     <div class="row">
       <div
@@ -14,11 +14,22 @@
           [(ngModel)]="availability"
         >
           <label ngbButtonLabel class="btn-toggle">
-            <input ngbButton type="radio" [value]="'available'" /> Available
-            Stands
+            <input
+              ngbButton
+              type="radio"
+              [value]="true"
+              (click)="isSoldNot()"
+            />
+            Available Stands
           </label>
           <label ngbButtonLabel class="btn-toggle">
-            <input ngbButton type="radio" value="unavailable" /> Already Sold
+            <input
+              ngbButton
+              type="radio"
+              [value]="false"
+              (click)="isSoldNot()"
+            />
+            Already Sold
           </label>
         </div>
       </div>

@@ -20,6 +20,10 @@ export class StandModalComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  back() {
+    this.activeModal.close('Save click');
+  }
+
   buyStand() {
     this.router.navigateByUrl('/buy');
 

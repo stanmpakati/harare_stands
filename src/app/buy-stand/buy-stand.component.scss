@@ -2,7 +2,7 @@ img {
   margin-top: 150px;
 }
 h5 {
-  margin-top: 30px;
+  color: rgb(46, 46, 46);
 }
 mat-form-field {
   margin-top: 20px;
@@ -21,4 +21,12 @@ mat-form-field {
 
 a {
   color: #006400;
+}
+
+mat-label {
+  color: rgb(97, 97, 97);
+}
+
+.bg-green {
+  background-color: #006400;
 }

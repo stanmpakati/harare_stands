@@ -10,6 +10,57 @@
 // @import "app/styles/settings/_variables.scss";
 $main-color: #006400;
 
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+// background-color: #ffffff !important;
+// color: #000000;
+// }
+
+.mat-progress-bar .mat-progress-bar-buffer {
+  background-color: #6c757d;
+}
+.mat-progress-bar .mat-progress-bar-fill::after {
+  background-color: #006400 !important;
+}
+
+.bg-red {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+.bg-text-red {
+  color: #dc3545;
+}
+
+.bg-orange {
+  background-color: #006400;
+  color: #ffffff;
+}
+.bg-text-orange {
+  color: #006400;
+}
+
+.bg-green {
+  background-color: orange;
+  color: #ffffff;
+}
+
+.bg-text-green {
+  color: orange;
+}
+
+.toast-success {
+  background-color: #006400;
+}
+.toast-error {
+  background-color: #bd362f;
+}
+.toast-info {
+  background-color: #2f96b4;
+}
+.toast-warning {
+  background-color: #f89406;
+}
+
 html,
 body {
   height: 100%;
@@ -34,6 +85,11 @@ body {
   border: none;
   border-radius: 50px;
   color: white;
+}
+
+.orange-button:hover {
+  color: black;
+  background-color: #85d485;
 }
 
 .orange-button-outline {
